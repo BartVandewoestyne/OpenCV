@@ -12,7 +12,8 @@ void onTrackbarSlide(int pos) {
     );
 }
 
-int main( int argc, char** argv ) {
+int main( int argc, char** argv )
+{
     cvNamedWindow( "Example3", CV_WINDOW_AUTOSIZE );
     g_capture = cvCreateFileCapture( argv[1] );
     int frames = (int) cvGetCaptureProperty(
@@ -44,5 +45,4 @@ int main( int argc, char** argv ) {
     cvDestroyWindow( "Example3" );
 
     return(0);
-
 }
