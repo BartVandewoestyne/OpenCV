@@ -1,9 +1,3 @@
-/**
- * Compile with:
- *
- *   g++ example2-01.cpp -o example2-01 `pkg-config --cflags --libs opencv`
- */
-
 #include "highgui.h"
 
 int main( int argc, char** argv ) {
