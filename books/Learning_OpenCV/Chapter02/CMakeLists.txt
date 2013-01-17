@@ -21,3 +21,9 @@ target_link_libraries(example2-07 ${OpenCV_LIBS})
 
 add_executable(example2-08 example2-08.cpp)
 target_link_libraries(example2-08 ${OpenCV_LIBS})
+
+add_executable(example2-09 example2-09.cpp)
+target_link_libraries(example2-09 ${OpenCV_LIBS})
+
+add_executable(example2-10 example2-10.cpp)
+target_link_libraries(example2-10 ${OpenCV_LIBS})
