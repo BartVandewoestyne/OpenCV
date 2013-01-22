@@ -1,0 +1,9 @@
+Step 1
+------
+  git clone https://github.com/Itseez/opencv.git
+
+Step 2
+------
+Follow build instructions from
+
+  http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation

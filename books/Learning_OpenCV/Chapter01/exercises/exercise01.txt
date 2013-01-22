@@ -1,0 +1,9 @@
+Step 1
+------
+Download latest .tar.gz from http://opencv.org/
+
+Step 2
+------
+Follow compilation instructions on
+
+  http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation
