@@ -23,6 +23,13 @@ main( int argc, char* argv[] ) {
     printf( "%u\n", cvRandInt( &rngState ) );
     printf( "%f\n", cvRandReal( &rngState ) );
 
-    // TODO
+    // Create a floating point CvPoint2D32f and convert it to an integer
+    // CvPoint.
+    CvPoint2D32f point_float1 = cvPoint2D32f(1.0, 2.0);
+    CvPoint point_int1 = cvPointFrom32f( point_float1 );
+
+    // Convert a CvPoint to a CvPoint2D32f.
+    CvPoint point_int2 = cvPoint(3, 4);
+    CvPoint2D32f point_float2 = cvPointTo32f( point_int2 );
 
 }
