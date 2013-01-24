@@ -4,4 +4,6 @@ Other online solutions can be found at:
 
 * http://code.google.com/p/nqd-403/source/browse/openCV/learning_opencv/
 
+* http://code.google.com/p/niladri-misc-stuff/source/browse/#svn%2Ftrunk%2FOpenCV
+
 * http://www.cnblogs.com/xiajun/archive/2011/08/23/2298652.html
