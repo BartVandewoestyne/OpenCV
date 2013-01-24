@@ -1,0 +1,3 @@
+Other online solutions can be found at:
+
+* http://guoyishi-works.googlecode.com/svn/trunk/Learning%20OpenCV/
