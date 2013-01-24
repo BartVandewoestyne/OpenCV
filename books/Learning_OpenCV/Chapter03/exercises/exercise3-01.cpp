@@ -1,7 +1,5 @@
 /**
  * Exercise 3-01.
- *
- * TODO: Finish this exercise!
  */
 
 #include "cv.h"
@@ -12,7 +10,7 @@ main( int argc, char* argv[] ) {
     // Choose a negative floating point number.  Take its absolute value,
     // round it, and then take its ceiling and floor.
     double a = -1.23;
-    // TODO: how to take absolute value?
+    printf( "CV_IABS(a) = %d\n", CV_IABS(a) );
     printf( "cvRound(a) = %d\n", cvRound(a) );
     printf( "cvCeil(a) = %d\n", cvCeil(a) );
     printf( "cvFloor(a) = %d\n", cvFloor(a) );
@@ -20,8 +18,10 @@ main( int argc, char* argv[] ) {
 
     // Generate some random numbers.
     CvRNG rngState = cvRNG(-1);
-    printf( "%u\n", cvRandInt( &rngState ) );
-    printf( "%f\n", cvRandReal( &rngState ) );
+    for (int i = 0; i < 10; i++) {
+        printf( "%u %f\n", cvRandInt( &rngState ),
+                           cvRandReal( &rngState ) );
+    }
 
     // Create a floating point CvPoint2D32f and convert it to an integer
     // CvPoint.
