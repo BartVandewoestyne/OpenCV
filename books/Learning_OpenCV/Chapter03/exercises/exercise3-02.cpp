@@ -12,18 +12,20 @@
 
 main( int argc, char* argv[] ) {
 
-    cvNamedWindow( "Circle", CV_WINDOW_AUTOSIZE );
 
-    CvMat* mat = cvCreateMat(100, 100, CV_8UC3);
-    cvZero( mat );
+    CvMat* mat = cvCreateMat(100, 100, CV_8UC3); // TODO: should this be CV_32FC3 ???
+    cvZero( mat ); // equivalent to cvSet(mat, cvScalarAll(0), 0)
 
     CvScalar yellow = CV_RGB(255,255,0);
 
     cvCircle(mat, cvPoint(50, 50), 30, yellow);
 
+    cvNamedWindow( "Circle", CV_WINDOW_AUTOSIZE );
     cvShowImage( "Circle", mat );
 
     cvWaitKey(0);
+
+    cvReleaseMat( &mat );
     cvDestroyWindow( "Circle" );
 
     return 0;
