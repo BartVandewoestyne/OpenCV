@@ -12,8 +12,6 @@
 
 main( int argc, char* argv[] ) {
 
-    cvNamedWindow( "ROI", CV_WINDOW_AUTOSIZE );
-
     IplImage* img = cvCreateImage( cvSize(210,210), IPL_DEPTH_8U, 1 );
     cvSetZero( img );
 
@@ -22,7 +20,7 @@ main( int argc, char* argv[] ) {
       int width = 210 - 2*x;
       int height = width;
       int val = 2*x;
-      CvScalar value = cvScalar( val, val, val );
+      CvScalar value = cvScalarAll( val );
 
       cvSetImageROI( img, cvRect( x, x, width, height) );
       cvSet( img, value );
@@ -30,8 +28,12 @@ main( int argc, char* argv[] ) {
 
     }
 
+    cvNamedWindow( "ROI", CV_WINDOW_AUTOSIZE );
     cvShowImage( "ROI", img );
+
     cvWaitKey(0);
+
+    cvReleaseImage( &img );
     cvDestroyWindow( "ROI" );
 
     return 0;
