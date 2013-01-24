@@ -3,8 +3,7 @@
  *
  * TODO:
  *
- *   - What should be the type of the matrix elements for a 'three-channel RGB
- *     image'?
+ *   - What should be the depth of the image for a 'three-channel RGB image'?
  *   - There still seems something wrong.  The rectangle's coordinates are not
  *     correct.
  */
@@ -14,22 +13,30 @@
 
 main( int argc, char* argv[] ) {
 
-    cvNamedWindow( "Square", CV_WINDOW_AUTOSIZE );
 
-    CvMat* mat = cvCreateMat(100, 100, CV_8UC3); // TODO: check if type is correct
-    cvSetZero( mat );
+    IplImage* img = cvCreateImage(
+      cvSize(100, 100),
+      //IPL_DEPTH_32F, // TODO: is this correct???
+      IPL_DEPTH_8U, // TODO: is this correct???
+      3
+    );
+    cvZero( img );
 
-    for (int row=20; row < 40; row++) {
-        uchar *ptr = (uchar*)(mat->data.ptr + row*mat->step);
+    for (int col=5; col < 20; col++) {
+        uchar *ptr = (uchar*)(img->imageDataOrigin + col*img->widthStep);
         ptr++;
-        for (int col=5; col < 20; col++) {
-            *ptr = 255;
+        for (int row=20; row < 40; row++) {
+            *(ptr+20*3) = 255;
             ptr += 3;
         }
     }
 
-    cvShowImage( "Square", mat );
+    cvNamedWindow( "Square", CV_WINDOW_AUTOSIZE );
+    cvShowImage( "Square", img );
+
     cvWaitKey(0);
+
+    cvReleaseImage( &img );
     cvDestroyWindow( "Square" );
 
     return 0;
