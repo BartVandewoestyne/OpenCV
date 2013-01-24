@@ -34,7 +34,6 @@ int main( int argc, char* argv[] ) {
 
         frame = cvQueryFrame(capture);
         if (!frame) break;
-        printf("original frame has %d channels.\n", frame->nChannels);
 
         // Turn to grayscale;
         frame_gray_ = cvCreateImage( cvGetSize(frame), frame->depth, 1 );
@@ -69,6 +68,13 @@ int main( int argc, char* argv[] ) {
         cvCopy( frame_gray,  temp2 );
         cvCopy( frame_edges, temp3 );
 
+        CvFont font;
+        cvInitFont( &font, CV_FONT_HERSHEY_SIMPLEX, 1, 1 );
+        CvPoint origin = cvPoint (50, 50);
+        cvPutText(temp1, "Original",       origin, &font, CV_RGB(255, 0, 0));
+        cvPutText(temp2, "Grayscale",      origin, &font, CV_RGB(255, 0, 0));
+        cvPutText(temp3, "Edge detection", origin, &font, CV_RGB(255, 0, 0));
+
         cvShowImage( "Three in one!", frame_all );
 
         char c = cvWaitKey(33);
@@ -80,6 +86,9 @@ int main( int argc, char* argv[] ) {
     cvReleaseImage( &frame_gray );
     cvReleaseImage( &frame_edges );
     cvReleaseImage( &frame_all );
+    cvReleaseImage( &temp1 );
+    cvReleaseImage( &temp2 );
+    cvReleaseImage( &temp3 );
     cvReleaseCapture( &capture );
     cvDestroyWindow( "Three in one!" );
 
