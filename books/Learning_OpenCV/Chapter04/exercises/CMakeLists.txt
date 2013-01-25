@@ -3,3 +3,6 @@ target_link_libraries(exercise4-01a ${OpenCV_LIBS})
 
 add_executable(exercise4-01bc exercise4-01bc.cpp)
 target_link_libraries(exercise4-01bc ${OpenCV_LIBS})
+
+add_executable(exercise4-02 exercise4-02.cpp)
+target_link_libraries(exercise4-02 ${OpenCV_LIBS})
