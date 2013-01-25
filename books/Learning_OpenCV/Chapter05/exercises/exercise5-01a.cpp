@@ -12,7 +12,7 @@ int main( int argc, char* argv[] ) {
     cvNamedWindow( "Original", CV_WINDOW_AUTOSIZE );
     cvShowImage( "Original", img );
 
-    IplImage* img_smoothed = cvCreateImage( cvGetSize(img), IPL_DEPTH_8U, 3 );
+    IplImage* img_smoothed = cvCreateImage( cvGetSize(img), img->depth, img->nChannels );
     char windowtitle[50];
     for (int s=3; s<=11; s+=2) {
 
@@ -23,8 +23,8 @@ int main( int argc, char* argv[] ) {
         cvShowImage( windowtitle, img_smoothed );
 
         cvWaitKey(0);
-        cvDestroyWindow( windowtitle );
 
+        cvDestroyWindow( windowtitle );
 
     }
 
