@@ -1,4 +1,7 @@
-//#include <iostream.h>
+/**
+ * Exercise 5-1b.
+ */
+
 #include <cv.h>
 #include <highgui.h>
 

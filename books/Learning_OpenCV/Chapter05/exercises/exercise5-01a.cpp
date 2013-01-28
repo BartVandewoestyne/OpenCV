@@ -1,5 +1,5 @@
 /**
- * Exercise 5-01.
+ * Exercise 5-01a.
  */
 
 #include <cv.h>
