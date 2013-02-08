@@ -2,7 +2,7 @@
  * Exercise 5-02.
  *
  * TODO:
- *   - Why does the original image change???
+ *   - What should we observe here???
  */
 
 #include <cv.h>
@@ -11,6 +11,7 @@
 int main( int argc, char* argv[] ) {
 
     IplImage* img = cvCreateImage( cvSize(100, 100), IPL_DEPTH_8U, 1 );
+    cvSetZero(img);
     IplImage* img_smoothed_5x5       = cvCreateImage( cvGetSize(img), img->depth, img->nChannels );
     IplImage* img_smoothed_5x5_twice = cvCreateImage( cvGetSize(img), img->depth, img->nChannels );
     IplImage* img_smoothed_9x9       = cvCreateImage( cvGetSize(img), img->depth, img->nChannels );
@@ -23,8 +24,6 @@ int main( int argc, char* argv[] ) {
     cvSmooth( img_smoothed_5x5, img_smoothed_5x5_twice, CV_GAUSSIAN, 5, 5 );
     cvSmooth( img,              img_smoothed_9x9,       CV_GAUSSIAN, 9, 9 );
 
-    // TODO: if we move these 4 statements to the beginning of main, we get
-    // different results???
     cvNamedWindow( "Exercise 5-2: original",  CV_WINDOW_AUTOSIZE );
     cvNamedWindow( "Exercise 5-2: 5x5",       CV_WINDOW_AUTOSIZE );
     cvNamedWindow( "Exercise 5-2: 5x5 twice", CV_WINDOW_AUTOSIZE );
