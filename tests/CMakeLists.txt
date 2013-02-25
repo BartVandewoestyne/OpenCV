@@ -4,8 +4,11 @@ project(OpenCV_Tests)
 
 include(../OpenCV_selection.cmake)
 
-add_executable(videowriter videowriter.cpp)
-target_link_libraries(videowriter ${OpenCV_LIBS})
+add_executable(videowriter1 videowriter1.cpp)
+target_link_libraries(videowriter1 ${OpenCV_LIBS})
+
+add_executable(videowriter2 videowriter2.cpp)
+target_link_libraries(videowriter2 ${OpenCV_LIBS})
 
 add_executable(framecountertest framecountertest.cpp)
 target_link_libraries(framecountertest ${OpenCV_LIBS})
