@@ -28,7 +28,7 @@ void setPixel(IplImage* img, unsigned int X, unsigned int Y, int col)
 int main( int argc, char* argv[] ) {
 
     CvSize mySize = cvSize(262, 720);    // Gives a tilted line video with OpenCV 2.3, but works with OpenCV 2.4.
-    //CvSize mySize = cvSize(264, 720);  // Works (maybe because 264 is a //multiple of 4???).
+    //CvSize mySize = cvSize(264, 720);  // Works (maybe because 264 is a multiple of 4???).
 
     CvVideoWriter* writer = cvCreateVideoWriter(
         "test.avi",
