@@ -4,5 +4,5 @@ project(OpenCV_Examples)
 
 include(../OpenCV_selection.cmake)
 
-add_executable(properties properties.cpp)
-target_link_libraries(properties ${OpenCV_LIBS})
+add_executable(capture_properties capture_properties.cpp)
+target_link_libraries(capture_properties ${OpenCV_LIBS})
