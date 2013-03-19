@@ -12,3 +12,9 @@ target_link_libraries(videowriter2 ${OpenCV_LIBS})
 
 add_executable(framecountertest framecountertest.cpp)
 target_link_libraries(framecountertest ${OpenCV_LIBS})
+
+add_executable(cvHoughLines2 cvHoughLines2.cpp)
+target_link_libraries(cvHoughLines2 ${OpenCV_LIBS})
+
+#add_executable(myHoughTest myHoughTest.cpp)
+#target_link_libraries(myHoughTest ${OpenCV_LIBS})
