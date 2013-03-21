@@ -9,21 +9,29 @@
 #include <cv.h>
 #include <highgui.h>
 #include <math.h>
+#include <iostream>
 
 int main(int argc, char** argv)
 {
     IplImage* src;
-    if( argc == 2 && (src=cvLoadImage(argv[1], 0))!= 0)
+
+    int cannyThreshold1 = atoi(argv[2]);
+    int cannyThreshold2 = atoi(argv[3]);
+    int houghThreshold = atoi(argv[4]);
+
+    if( argc == 5 && (src=cvLoadImage(argv[1], 0))!= 0)
     {
         IplImage* dst = cvCreateImage( cvGetSize(src), 8, 1 );
         IplImage* color_dst = cvCreateImage( cvGetSize(src), 8, 3 );
         CvMemStorage* storage = cvCreateMemStorage(0);
         CvSeq* lines = 0;
         int i;
-        cvCanny( src, dst, 50, 200, 3 );
+        //cvCanny( src, dst, 50, 200, 3 );
+        cvCanny( src, dst, cannyThreshold1, cannyThreshold2, 3 );
         cvCvtColor( dst, color_dst, CV_GRAY2BGR );
 #if 1
-        lines = cvHoughLines2( dst, storage, CV_HOUGH_STANDARD, 1, CV_PI/180, 100, 0, 0 );
+        //lines = cvHoughLines2( dst, storage, CV_HOUGH_STANDARD, 1, CV_PI/180, 100, 0, 0 );
+        lines = cvHoughLines2( dst, storage, CV_HOUGH_STANDARD, 1, CV_PI/180, houghThreshold, 0, 0 );
 
         for( i = 0; i < MIN(lines->total,100); i++ )
         {
@@ -52,6 +60,7 @@ int main(int argc, char** argv)
 
         cvNamedWindow( "Hough", 1 );
         cvShowImage( "Hough", color_dst );
+        cvSaveImage( "hough_output.png", color_dst );
 
         cvWaitKey(0);
     }
