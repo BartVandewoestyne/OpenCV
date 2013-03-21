@@ -18,3 +18,6 @@ target_link_libraries(cvHoughLines2 ${OpenCV_LIBS})
 
 #add_executable(myHoughTest myHoughTest.cpp)
 #target_link_libraries(myHoughTest ${OpenCV_LIBS})
+
+add_executable(cvMatchTemplate cvMatchTemplate.cpp)
+target_link_libraries(cvMatchTemplate ${OpenCV_LIBS})
