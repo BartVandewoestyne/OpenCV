@@ -9,3 +9,6 @@ target_link_libraries(image_properties ${OpenCV_LIBS})
 
 add_executable(capture_properties capture_properties.cpp)
 target_link_libraries(capture_properties ${OpenCV_LIBS})
+
+add_executable(cvMat cvMat.cpp)
+target_link_libraries(cvMat ${OpenCV_LIBS})

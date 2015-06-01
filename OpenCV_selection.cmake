@@ -1,19 +1,14 @@
 # Set this to the version of OpenCV that you need.
-set(OPENCV_LIB "latest")
+set(OPENCV_LIB "mine")
 
-if(OPENCV_LIB STREQUAL "latest")
+if(OPENCV_LIB STREQUAL "mine")
 
   message(STATUS "Using my own compiled OpenCV.")
-  include_directories("/opt/opencv/latest/include/opencv")
-  link_directories("/opt/opencv/latest/lib")
-  set(OpenCV_LIBS "opencv_gpu;opencv_contrib;opencv_legacy;opencv_objdetect;opencv_calib3d;opencv_features2d;opencv_video;opencv_highgui;opencv_ml;opencv_imgproc;opencv_flann;opencv_core")
-
-elseif(OPENCV_LIB STREQUAL "fat")
-
-  message(STATUS "Using OpenCV from Traficon's fat repository.")
-  include_directories("$ENV{HOME}/Git/Research/fat/inc/TraficonOpenCv/opencv")
-  link_directories("$ENV{HOME}/Git/Research/fat/bin/TraficonOpenCv/linux_release" "$ENV{HOME}/Git/Research/fat/bin/FFMpeg/linux_release")
-  set(OpenCV_LIBS "opencv_gpu;opencv_contrib;opencv_legacy;opencv_objdetect;opencv_calib3d;opencv_features2d;opencv_video;opencv_highgui;opencv_ml;opencv_imgproc;opencv_flann;opencv_core")
+  include_directories("D:\\SVN\\SE-Simulation-XDSRacu\\Libraries\\ICRacuMath\\OpenCV\\2.3.1\\include\\opencv"
+	              "D:\\SVN\\SE-Simulation-XDSRacu\\Libraries\\ICRacuMath\\OpenCV\\2.3.1\\include")
+  link_directories("D:\\SVN\\SE-Simulation-XDSRacu\\Libraries\\ICRacuMath\\OpenCV\\2.3.1\\vc11\\bin"
+	           "D:\\SVN\\SE-Simulation-XDSRacu\\Libraries\\ICRacuMath\\OpenCV\\2.3.1\\vc11\\lib")
+  set(OpenCV_LIBS "opencv_gpu231d;opencv_contrib231d;opencv_legacy231d;opencv_objdetect231d;opencv_calib3d231d;opencv_features2d231d;opencv_video231d;opencv_highgui231d;opencv_ml231d;opencv_imgproc231d;opencv_flann231d;opencv_core231d")
 
 elseif(OPENCV_LIB STREQUAL "system")
 
